@@ -1,0 +1,200 @@
+# Build: Pyramid Incorporation website (complete redesign)
+
+You are a senior UI/UX designer, brand designer and full-stack developer. Build a complete, production-ready, premium single-page website for **Pyramid Incorporation**, a waterproofing and structural-repair company in Nagpur. It replaces https://www.pyramidincorporation.com/ (an outdated template site).
+
+Work autonomously. Don't stop to ask questions unless you are genuinely blocked. Where a fact is uncertain, use the value given below and list it in the README under "To confirm". Never invent contact details, testimonials, client names, project counts, awards, certifications, warranties or brand partnerships.
+
+## 0. Before building
+
+1. Fetch https://www.pyramidincorporation.com/ and cross-check the facts in section 1.
+2. Download these genuine company assets into `src/assets/` (keep the originals and create optimised versions):
+   - Old logo (reference only): https://www.pyramidincorporation.com/assets/templates_pcard/template_seven/logo.jpg → `brand/legacy-logo.jpg` i have attached the new logo in the folder - logo.pdf
+   - Real project gallery photos → `projects/project-01.webp` … `project-06.webp`:
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d904b674bf-gallery_2025-12-01_18_25_39_140017.webp
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d9051e4572-gallery_2025-12-01_18_25_45_568452.webp
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d9057a2a73-gallery_2025-12-01_18_25_50_956779.webp
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d9078a0610-gallery_2025-12-01_18_26_23_938250.webp
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d918f57fea-gallery_2025-12-01_18_31_03_013480.webp
+     - https://d1zan32e0a5xsy.cloudfront.net/user_gallery/692d91958117b-gallery_2025-12-01_18_31_09_043758.webp
+   - Look at each downloaded photo and write a short, honest caption describing only what is visible (e.g. "Terrace surface preparation"). Don't invent locations, clients or dates.
+
+## 1. Verified business information (single source of truth)
+
+Put all of this in `src/data/site.js` so it can be edited in one place.
+
+- Company: Pyramid Incorporation
+- Business: waterproofing and structural repair agency; also supplies waterproofing chemicals
+- Established: 2010 (one constant `FOUNDED_YEAR = 2010`; compute "years of experience" from the current year, displayed as "15+ years" style, never hard-coded)
+- Projects: "100+ projects across Vidarbha"
+- Proprietor: Nitten R Tiwarii
+- Phone and WhatsApp: +91 98909 53541 / +91 72494 90517
+  - tel link: `tel:+919890953541`
+  - WhatsApp: `https://wa.me/message/QE5NCTZBTL6HA1`. Note: the old site had a broken space in its WhatsApp links; don't copy that.
+- Email: pyramidincorporation2011@gmail.com (`mailto:`)
+- Address: G-4, Sai Regency, Ravi Nagar Square, Amravati Road, Nagpur, Maharashtra 440033
+- Google Maps link: https://maps.app.goo.gl/TZuU1sx18kfyxD3V8
+- Map embed (no API key): `https://www.google.com/maps?q=<urlencoded address>&output=embed`, lazy-loaded iframe with a title attribute
+- Hours: Monday–Saturday, 9:00 AM – 7:00 PM (mark "To confirm" in README)
+- GSTIN: 27ACLPT1798H1ZW (footer, small text)
+- Find us on (footer and contact):
+  - IndiaMART: https://www.indiamart.com/pyramid-incorporation/profile.html
+  - Justdial: https://www.justdial.com/Nagpur/Pyramid-Incorporation-Opposite-Sengupta-Hospitalhanuman-Mandir-Ravi-Nagar/0712PX712-X712-140430102254-T5P9_BZDET
+  - Google Business: https://share.google/gVc44svbdGa6KMf4N
+- Social media: none known. Leave an empty `social` array in the config, with the footer rendering it only if filled.
+- Core values (from the existing site): Uncompromising quality · Customer-centric approach · Competitive pricing · Innovative solutions · Timely delivery · Long-term protection
+- Vision (rewrite of the existing text; remove the outdated "12 years"): "To be the most trusted name in waterproofing across Vidarbha, delivering long-lasting protection through sound diagnosis, quality materials and careful execution."
+- Mission: "Solve every leakage and dampness problem at its source, with honest assessment, the right system for the structure, and work that is done properly the first time."
+
+Claims policy:
+- ALLOWED: Since 2010, 400+ projects in Vidarbha, free consultation/site inspection, 10 specialised services.
+- NOT ALLOWED: "100% satisfaction guaranteed", warranty periods, percentages, client logos, testimonials, ratings, award or ISO claims.
+
+## 2. Services (rewrite completely; the old site's text was wrong and duplicated)
+
+Use these technically accurate descriptions in `src/data/services.js`. Each service needs:
+- id, title, short description (1–2 sentences, for the card)
+- a "What we do" list of 3–4 bullets (for an expandable detail panel or modal)
+- "Typical signs you need it", 2–3 bullets
+- an image
+- an "Enquire on WhatsApp" button with the service name pre-filled
+
+The services:
+
+1. **Toilet / Bathroom Waterproofing.** Most bathroom leaks pass through the floor, wall–floor junctions and pipe penetrations into the room below or the adjoining walls. We prepare the surface, seal pipe outlets and penetrations, form coving at junctions, apply a flexible polymer-modified cementitious or liquid membrane across the floor and up the walls, and pond-test before tiling.
+2. **Sump / Underground Water Tank Waterproofing.** Underground tanks face water pressure from inside and groundwater from outside. We treat construction joints and pipe inlets, repair honeycombed concrete, and apply cementitious or crystalline waterproofing. For drinking-water tanks we use materials suitable for potable water storage.
+3. **Terrace Insulation & Treatment.** We repair cracks, correct slopes and drainage outlets, and apply a waterproofing system suited to the terrace (elastomeric coatings or membranes), with heat-reflective coatings or insulation layers to bring down slab temperature and the heat entering the rooms below.
+4. **Expansion Joint Treatment.** Expansion joints let a structure move with temperature and load; failed joints let water straight in. We clean out old fillers, insert backer rod and seal with elastomeric sealants (such as PU or polysulphide), or fit joint-cover systems, so the joint stays watertight while still allowing movement.
+5. **Crack Treatment.** We first assess whether a crack is surface-level or deeper, and dormant or still moving. Then we treat it accordingly: V-grooving and filling with polymer-modified mortar or flexible sealant, or injection for deeper cracks. Cracks that indicate structural distress are referred for a structural engineer's assessment.
+6. **Cement Slurry Grouting.** Cement-based grout is pumped under pressure through injection nozzles to fill voids, honeycombing and porous concrete. This consolidates the member and closes the paths water uses to seep through.
+7. **PU Grouting.** Polyurethane resin is injected through packers into actively leaking cracks and joints. It reacts with water and expands to seal the leak, even under wet conditions, which makes it suited to basements, tanks, lift pits and other below-ground areas.
+8. **Core Cutting.** Diamond core drilling makes clean, precise circular openings in concrete and masonry for pipes, drains and service lines. It causes far less vibration and surrounding damage than breaking with hammers.
+9. **Rebaring.** Corroded reinforcement is exposed, cleaned, treated with anti-corrosion coating and re-covered with polymer-modified repair mortar. Where reinforcement must be added, new bars are anchored into drilled holes with chemical anchoring. Waterproofing is then applied to stop the corrosion from returning.
+10. **Basement Treatment.** Below-ground walls and floors are under constant water pressure. We combine injection grouting for active leaks, joint sealing, and cementitious or crystalline coatings to control seepage, dampness and the damage they cause.
+
+Do NOT include the old site's duplicate "Water Proofing Terrace" service; it is covered by #3.
+
+## 3. Images
+
+The owner wants real-looking photos of workers actually doing waterproofing work.
+
+1. **Real company photos first.** Use the six genuine gallery photos in the Projects section, labelled "Pyramid Incorporation project". Use the strongest one in About.
+2. **Stock photos for everything else.** For the hero, service cards and any remaining gallery slots, find photos ONLY from free commercial-use sources: Unsplash, Pexels or Pixabay. Never use Google Images results or any other copyrighted photos.
+   - Prefer photos of workers actually doing the job, in Indian or comparable construction settings: applying waterproof coating with roller or brush, torch-on membrane, injection grouting with packers, diamond core drilling, rebar work, tank or basement work, crack repair, terrace work.
+   - Pick one relevant photo per service; no two services should share an image.
+   - Avoid cheesy posed stock, staged handshakes, Western suburban roofs and anything off-topic.
+3. **Download everything locally.** Use no hotlinks or temporary URLs. Convert to WebP with `sharp` (a dev-only script in `scripts/optimize-images.mjs`) at sensible widths (e.g. 640/1280/1920) and use `srcset`/`sizes`.
+4. **Credits and labelling.**
+   - Record every stock photo's source URL, photographer and licence in `IMAGE_CREDITS.md`.
+   - Any stock photo shown in the gallery gets a small "Representative image" label.
+   - Never present stock as company work.
+5. **Make photos easy to replace.**
+   - Keep image references in the data files: `services.js` and `gallery.js` with `{ src, alt, caption, isCompanyPhoto }`.
+   - Explain in the README how the owner swaps in his own site photos (drop the file into the folder, edit one line).
+6. **Accessibility and loading.** Every image needs descriptive alt text. Use `loading="lazy"` everywhere except the hero, which is preloaded.
+
+## 4. Design direction
+
+The site should feel premium, engineered and trustworthy, like an established technical contractor, not a template.
+
+- **Palette:**
+  - Deep navy `#0B1F3A` (primary)
+  - Ink navy `#071427` (darkest sections)
+  - Off-white `#F6F4EF` (light sections)
+  - Charcoal `#2A2E35` (body text)
+  - Warm grey `#8A8F98` (secondary text)
+  - Copper-gold accent `#C8862E` (used sparingly: CTAs, rules, numerals)
+  - No rainbow gradients; at most subtle navy-to-ink overlays on photos.
+- **Type:**
+  - Self-host fonts with `@fontsource` (no Google Fonts CDN).
+  - Headings: a strong, slightly condensed grotesk such as **Archivo** (600–800).
+  - Body: **Inter**.
+  - Use a clear scale, generous line-height and tight letter-spacing on large headings.
+  - Small uppercase tracked eyebrow labels with section numbers ("01 — About").
+- **Shape language:**
+  - Mostly sharp corners (2–4px radius maximum); no bubbly cards.
+  - Thin hairline borders and an architectural grid feel.
+  - The pyramid triangle as a recurring motif: logo mark, bullet markers, section dividers, subtle background linework.
+- **Layout:**
+  - Asymmetric compositions; full-bleed photography; alternate light and dark sections.
+  - Don't repeat the same "three equal cards" layout in every section.
+- **Motion:**
+  - Use `motion` (Framer Motion) for restrained reveal-on-scroll (fade/slide 16–24px), a hero headline stagger, and image hover zoom on cards.
+  - Respect `prefers-reduced-motion`.
+  - No parallax overload, no bouncing.
+- **Logo:**
+  - Design a new SVG logo: a geometric pyramid mark (two-tone navy and copper, with a subtle water-drop or layer cue) plus a "PYRAMID INCORPORATION" wordmark.
+  - Produce light and dark versions.
+  - Use the mark for the favicon set: `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, 192/512 PNGs and `site.webmanifest`.
+
+## 5. Page structure (single page, smooth-scroll anchors)
+
+1. **Header**
+   - Sticky; transparent over the hero, then solid navy on scroll.
+   - Logo, links (Home, About, Services, Projects, Why Us, Contact) and a copper "Get a Quote" button.
+   - Mobile: accessible slide-in menu with focus trap, Esc to close and body scroll lock.
+   - Active-section highlighting.
+2. **Hero**
+   - Full-bleed photo of a worker applying waterproofing, with a navy overlay.
+   - Headline along the lines of: "Stopping leaks at the source. Protecting structures for the long term."
+   - One-line subtext about waterproofing and structural repair across Nagpur and Vidarbha since 2010.
+   - Buttons: "Get a Free Consultation" (to Contact) and "Explore Our Services".
+   - A slim credibility strip: Since 2010 · 100+ projects in Vidarbha · 10 specialised services · Free site inspection.
+3. **About**
+   - Introduction, the proprietor's name, and a short line on material supply.
+   - Mission and vision, plus core values with icons, laid out as an editorial split with a real project photo.
+4. **Services**
+   - All 10 services in a refined grid: image, number, title, short text, "Learn more" (opens an accessible detail modal or panel) and "Enquire on WhatsApp".
+   - Add filter chips: All / Waterproofing / Grouting & Injection / Repair & Cutting.
+5. **Our Process**
+   - Five steps: Site inspection → Diagnosis → Proposal & quote → Execution → Handover & guidance.
+   - Horizontal timeline on desktop, vertical on mobile.
+6. **Why Choose Us**
+   - Established in 2010, quality-focused execution, experienced team, competitive pricing, timely completion, long-term protection, customer satisfaction.
+   - Bento-style layout on a dark section with Lucide icons. No numbers beyond the verified ones.
+7. **Projects & Gallery**
+   - Masonry or responsive grid.
+   - Filter: All / Company projects / Representative.
+   - Custom lightbox with no extra dependency: keyboard arrows, Esc, swipe on mobile, captions, focus management.
+8. **Contact**
+   - Clickable phone, WhatsApp, email and address; hours; map embed.
+   - Enquiry form with fields: Name*, Phone* (Indian 10-digit validation), Email, Service required (dropdown of the 10 services plus "Other / Not sure"), Message.
+   - Submit behaviour:
+     - If `VITE_WEB3FORMS_KEY` is set in `.env`, POST to Web3Forms and show success or error states.
+     - Always offer "Send via WhatsApp", which builds a pre-filled `wa.me` message from the form fields.
+     - If no key is set, WhatsApp is the primary submit.
+   - Include a honeypot spam field.
+9. **Footer**
+   - Logo, a short description, quick links, all services, contact details, "Find us on" links, GSTIN and "© {current year} Pyramid Incorporation".
+10. **Floating WhatsApp button** (bottom-right, accessible label). Mobile also gets a sticky bottom "Call / WhatsApp" bar.
+
+## 6. Technical requirements
+
+- **Stack:**
+  - React 18+ with Vite (latest stable).
+  - Tailwind CSS v4 via `@tailwindcss/vite`.
+  - `motion`, `lucide-react` and `@fontsource/*`.
+  - `sharp` as a dev dependency only.
+  - Nothing else unless clearly needed. Use plain JavaScript (JSX) unless you have a strong reason for TypeScript.
+- **Structure:**
+  - `src/components/` with one component per section, plus `ui/` for Button, SectionHeading, Container, Modal, Lightbox.
+  - `src/data/` for site, services, gallery, process and values.
+  - `src/hooks/`.
+- **SEO** (in `index.html`):
+  - Title: "Pyramid Incorporation | Waterproofing Contractors in Nagpur since 2010"
+  - Meta description, canonical `https://www.pyramidincorporation.com/`
+  - Open Graph and Twitter tags, plus a 1200×630 OG image you generate
+  - JSON-LD `HomeAndConstructionBusiness` with name, address, phone, email, foundingDate, areaServed (Nagpur, Vidarbha) and sameAs links
+  - `robots.txt` and `sitemap.xml`
+  - Semantic HTML5 with one `h1`
+- **Accessibility:**
+  - WCAG AA contrast, visible focus states, skip-to-content link
+  - Labelled form fields with error messages, aria attributes on menu, modal and lightbox
+  - Everything keyboard-operable
+- **Performance:**
+  - Lazy-load images and the map; preload the hero image and the main font.
+  - Keep the JS bundle lean. Target a Lighthouse score of 90+ for performance, accessibility, best practices and SEO on mobile.
+- **Deployment config:**
+  - `netlify.toml` and `vercel.json` (SPA fallback, cache headers for assets).
+  - `.gitignore`, `.env.example` (with `VITE_WEB3FORMS_KEY=`), `.nvmrc`.
+
+## 7. Verify before finishing (actually do this, then fix everything you find)

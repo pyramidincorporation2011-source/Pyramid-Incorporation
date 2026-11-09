@@ -1,0 +1,29 @@
+{
+  "name": "pyramid-incorporation",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "images": "node scripts/optimize-images.mjs",
+    "brand": "node scripts/generate-brand.mjs",
+    "build:spa": "vite build"
+  },
+  "dependencies": {
+    "@fontsource-variable/jost": "^5.3.0",
+    "@fontsource-variable/source-sans-3": "^5.3.1",
+    "lucide-react": "^1.70.0",
+    "motion": "^14.11.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@vitejs/plugin-react": "^6.3.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.7"
+  }
+}
