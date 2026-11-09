@@ -1,0 +1,11 @@
+// Cloudflare Workers (static assets) configuration.
+// The site is fully static: `npm run build` writes it to dist/, and `npx wrangler deploy` uploads that folder.
+// Security and cache headers come from public/_headers (copied into dist/).
+{
+  "name": "pyramid-incorporation",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

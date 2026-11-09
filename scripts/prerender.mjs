@@ -3,13 +3,26 @@
  * before JavaScript loads (better LCP and SEO). Runs after the client and SSR builds:
  *   vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs
  */
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { readFile, writeFile, rm, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const htmlPath = path.join(root, 'dist/index.html');
-const { render } = await import(pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')).href);
+// Locate the server bundle (its name/location can vary with the bundler configuration).
+async function findEntry(dir) {
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) {
+      const found = await findEntry(full);
+      if (found) return found;
+    } else if (/^entry-server.*\.m?js$/.test(e.name)) return full;
+  }
+  return null;
+}
+const entry = await findEntry(path.join(root, 'dist-ssr'));
+if (!entry) throw new Error('Prerender: entry-server bundle not found in dist-ssr/');
+const { render } = await import(pathToFileURL(entry).href);
 
 const html = await readFile(htmlPath, 'utf8');
 const marker = '<div id="root"></div>';

@@ -50,7 +50,7 @@ Key features:
 | Motion | `motion`, used only for the menu, dialogs and photo viewer |
 | Images | WebP in several sizes, generated with `sharp` |
 | Rendering | Prerendered to static HTML at build time, then hydrated |
-| Hosting | Cloudflare Pages (Netlify and Vercel configuration also included) |
+| Hosting | Cloudflare Workers static assets (Netlify and Vercel configuration also included) |
 
 ## Getting started
 
@@ -167,14 +167,14 @@ text, title and description, so when targeting a new phrase, also use it natural
 
 ## Deployment
 
-The site is hosted on **Cloudflare Pages** (free plan; commercial use allowed). The domain is registered with GoDaddy
-and its DNS is managed by Cloudflare.
+The site is hosted on **Cloudflare** (Workers with static assets; free plan, commercial use allowed). The domain is
+registered with GoDaddy and its DNS is managed by Cloudflare.
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | None (or Vite) |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
+| Deploy command | `npx wrangler deploy` |
+| Configuration | `wrangler.jsonc` (uploads `dist/`, single-page fallback) |
 | Node.js version | 22 (read from `.nvmrc`) |
 | Headers | `public/_headers` (security and caching) |
 
@@ -182,14 +182,14 @@ Every push to the `main` branch on GitHub redeploys the site automatically.
 
 **First-time set-up**
 
-1. In Cloudflare: **Workers & Pages → Create → Pages → Connect to Git**, select the GitHub repository and enter the
-   settings above.
+1. In Cloudflare: **Workers & Pages → Create → Import a repository**, select the GitHub repository and enter the
+   build and deploy commands above.
 2. Optionally add `VITE_WEB3FORMS_KEY` under **Settings → Variables and secrets**, then redeploy.
 3. Add the domain to Cloudflare (**Add a domain**, Free plan). Check the imported DNS records, keep the email
    records (`MX` and `mail`), then change the nameservers in GoDaddy (**Domain → DNS → Nameservers**) to the two
    Cloudflare provides.
-4. Once the domain is active, add `www.pyramidincorporation.com` and `pyramidincorporation.com` under the Pages
-   project's **Custom domains**, and redirect the bare domain to `www` with a Redirect Rule.
+4. Once the domain is active, add `www.pyramidincorporation.com` and `pyramidincorporation.com` under the project's
+   **Settings → Domains & Routes**, and redirect the bare domain to `www` with a Redirect Rule.
 5. In the domain's settings, turn off **Email Address Obfuscation** and **Rocket Loader** (not needed, and they
    alter the page).
 
