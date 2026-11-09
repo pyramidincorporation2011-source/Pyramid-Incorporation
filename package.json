@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build": "node scripts/generate-notices.mjs && vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview",
     "images": "node scripts/optimize-images.mjs",
     "brand": "node scripts/generate-brand.mjs",
-    "build:spa": "vite build"
+    "build:spa": "vite build",
+    "notices": "node scripts/generate-notices.mjs"
   },
   "dependencies": {
     "@fontsource-variable/jost": "^5.3.0",
@@ -25,5 +26,8 @@
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.5",
     "vite": "^8.3.7"
-  }
+  },
+  "license": "UNLICENSED",
+  "author": "Pyramid Incorporation",
+  "description": "Website of Pyramid Incorporation, waterproofing and structural repair contractors, Nagpur."
 }

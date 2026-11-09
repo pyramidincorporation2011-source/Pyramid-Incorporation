@@ -1,0 +1,53 @@
+PROPRIETARY LICENCE — ALL RIGHTS RESERVED
+
+Copyright (c) 2026 Pyramid Incorporation, Nagpur, Maharashtra, India.
+All rights reserved.
+
+1. Ownership
+
+This repository and the website published from it, including its source code,
+design, layout, written content, logo and brand assets, and the company's own
+photographs (together, "the Materials"), are the exclusive property of
+Pyramid Incorporation.
+
+2. No licence granted
+
+No licence or right to use the Materials is granted, whether expressly, by
+implication or otherwise. Without the prior written permission of
+Pyramid Incorporation, you may not:
+
+  (a) copy, reproduce or republish the Materials, in whole or in part;
+  (b) modify, adapt, translate or create derivative works from them;
+  (c) distribute, sell, sublicense, rent or otherwise make them available
+      to any third party;
+  (d) use the Materials, or any part of them, for another business or website.
+
+Access to this repository or to the public website does not transfer any
+ownership or grant any of these rights.
+
+3. Third-party components
+
+Some parts of the website are owned by third parties and are used under their
+own licences, which continue to apply to them. This notice does not claim
+ownership of them:
+
+  - Open-source software packages (for example React, Vite, Tailwind CSS,
+    Motion and lucide-react), each under the licence included with the package.
+  - The Jost and Source Sans 3 typefaces, under the SIL Open Font License 1.1.
+  - Stock photographs from Pexels, under the Pexels License
+    (https://www.pexels.com/license/).
+  - Customer reviews quoted from Google, which remain the words of their authors.
+  - Content quoted from SiliconIndia Homes, credited where it appears.
+
+The complete list of third-party material, with photographer credits and the
+full licence texts, is in THIRD_PARTY_NOTICES.md and is published on the
+website at /third-party-notices.txt. Trademarks named on the website belong to
+their respective owners.
+
+4. Permission requests
+
+To request permission to use any of the Materials, contact
+Pyramid Incorporation at pyramidincorporation2011@gmail.com.
+
+Unauthorised use of the Materials may infringe copyright and other
+intellectual property rights and may lead to legal action.

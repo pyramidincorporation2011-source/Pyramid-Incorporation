@@ -213,6 +213,7 @@ function EnquiryForm() {
             id={id('name')}
             name="name"
             autoComplete="name"
+            maxLength={100}
             required
             aria-required="true"
             aria-invalid={Boolean(errors.name)}
@@ -235,6 +236,7 @@ function EnquiryForm() {
             id={id('phone')}
             name="phone"
             type="tel"
+            maxLength={20}
             inputMode="tel"
             autoComplete="tel"
             placeholder="10-digit mobile number"
@@ -260,6 +262,7 @@ function EnquiryForm() {
             id={id('email')}
             name="email"
             type="email"
+            maxLength={254}
             autoComplete="email"
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? id('email-err') : undefined}
@@ -305,6 +308,7 @@ function EnquiryForm() {
             id={id('message')}
             name="message"
             rows={4}
+            maxLength={2000}
             placeholder="Where is the leak, and how long has it been there?"
             value={values.message}
             onChange={update}
@@ -314,7 +318,7 @@ function EnquiryForm() {
         {/* Honeypot: hidden from people and assistive tech; bots tend to fill it. */}
         <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
           <label htmlFor={id('company')}>Company</label>
-          <input id={id('company')} name="company" tabIndex={-1} autoComplete="off" value={values.company} onChange={update} />
+          <input id={id('company')} name="company" tabIndex={-1} autoComplete="off" maxLength={100} value={values.company} onChange={update} />
         </div>
       </div>
 

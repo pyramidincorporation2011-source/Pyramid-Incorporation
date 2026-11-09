@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/data/site.js';
+import { services } from './src/data/services.js';
 
 /** JSON-LD built from src/data/site.js so business details live in one place. */
 function jsonLd() {
@@ -41,6 +42,23 @@ function jsonLd() {
       },
     ],
     taxID: site.gstin,
+    keywords: site.seoKeywords.join(', '),
+    knowsAbout: services.map((s) => s.title),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Waterproofing and structural repair services',
+      itemListElement: services.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.short,
+          serviceType: s.title,
+          provider: { '@id': `${site.url}#business` },
+          areaServed: 'Nagpur, Vidarbha and other states in India',
+        },
+      })),
+    },
     subjectOf: site.press.map((p) => ({
       '@type': 'Article',
       headline: p.title,
@@ -60,6 +78,9 @@ function criticalAssets() {
       order: 'post',
       handler(html, ctx) {
         const tags = [
+          { tag: 'meta', attrs: { name: 'keywords', content: site.seoKeywords.join(', ') }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'geo.region', content: 'IN-MH' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'geo.placename', content: 'Nagpur' }, injectTo: 'head' },
           { tag: 'script', attrs: { type: 'application/ld+json' }, children: jsonLd(), injectTo: 'head' },
         ];
         if (ctx.bundle) {
@@ -102,8 +123,37 @@ function criticalAssets() {
   };
 }
 
+/**
+ * Content-Security-Policy and other security headers.
+ * Production headers are set in netlify.toml / vercel.json; they are mirrored here for `npm run preview`
+ * so the policy can be tested locally. Keep all three in sync.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self' https://api.web3forms.com",
+  'frame-src https://www.google.com',
+  "form-action 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'none'",
+].join('; ');
+
+const securityHeaders = {
+  'Content-Security-Policy': CSP,
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+};
+
 export default defineConfig({
   plugins: [react(), tailwindcss(), criticalAssets()],
+  preview: { headers: securityHeaders },
   build: {
     assetsInlineLimit: 0,
     rollupOptions: {

@@ -28,7 +28,7 @@ export default function Services() {
         <SectionHeading
           id="services-title"
           title="Our services"
-          intro="Waterproofing, grouting and structural repair for homes, apartments and commercial premises. Each job is matched to the right system for the structure."
+          intro="Leakage, dampness and seepage solutions for homes, apartments and commercial premises in Nagpur and beyond. Each job is matched to the right system for the structure."
         />
 
         <div role="group" aria-label="Filter services" className="no-scrollbar -mx-5 mt-10 flex gap-8 overflow-x-auto border-b border-line px-5 sm:mx-0 sm:px-0">

@@ -93,7 +93,12 @@ export default function Footer() {
 
         <div className="flex flex-col gap-2 pt-6 text-sm text-muted-light sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Pyramid Incorporation. All rights reserved.</p>
-          <p>GSTIN {site.gstin}</p>
+          <p className="flex flex-wrap gap-x-5 gap-y-1">
+            <span>GSTIN {site.gstin}</span>
+            <a href="/third-party-notices.txt" className="hover:text-white hover:underline underline-offset-4">
+              Credits &amp; licences
+            </a>
+          </p>
         </div>
       </Container>
     </footer>

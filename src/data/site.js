@@ -1,7 +1,7 @@
 /**
  * Single source of truth for business information.
  * Edit here; every section, the footer, the JSON-LD and the meta tags read from this file.
- * Items marked "To confirm" in README.md should be checked with the owner.
+ * See the "Pre-launch checklist" in README.md for items to confirm with the owner.
  */
 
 export const FOUNDED_YEAR = 2010;
@@ -74,6 +74,34 @@ export const site = {
       href: 'https://www.justdial.com/Nagpur/Pyramid-Incorporation-Opposite-Sengupta-Hospitalhanuman-Mandir-Ravi-Nagar/0712PX712-X712-140430102254-T5P9_BZDET',
     },
   ],
+  /**
+   * Search phrases the site should be found for. Used in the keywords meta tag and the JSON-LD business data.
+   * Google ranks on the visible page text, title and description, so keep these phrases in the copy as well.
+   */
+  seoKeywords: [
+    'waterproofing contractors in Nagpur',
+    'waterproofing services Nagpur',
+    'waterproofing company Nagpur',
+    'bathroom waterproofing Nagpur',
+    'toilet leakage repair',
+    'terrace waterproofing Nagpur',
+    'roof leakage solution',
+    'terrace heat insulation',
+    'water tank waterproofing',
+    'underground tank leakage repair',
+    'basement waterproofing',
+    'wall dampness and seepage treatment',
+    'crack repair and filling',
+    'PU injection grouting Nagpur',
+    'cement grouting',
+    'expansion joint sealing',
+    'concrete core cutting Nagpur',
+    'rebaring and structural repair',
+    'waterproofing chemicals supplier Nagpur',
+    'waterproofing contractors Vidarbha',
+    'waterproofing contractors Maharashtra',
+  ],
+
   /** Add profiles as { name: 'Instagram', href: 'https://…' }. The footer renders this only when filled. */
   social: [],
 
