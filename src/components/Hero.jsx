@@ -15,10 +15,8 @@ export default function Hero() {
       <div className="relative isolate overflow-hidden bg-navy text-white">
         <HeroImage />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/30" />
-        {/* Darkens the top edge so the tinted header blends into the photo. */}
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-ink/60 to-transparent" />
 
-        <div className="container-x flex min-h-[40rem] flex-col justify-center pb-20 pt-36 lg:min-h-[46rem] lg:pt-48">
+        <div className="container-x flex min-h-[34rem] flex-col justify-center py-20 lg:min-h-[38rem]">
           <h1 id="hero-title" className="max-w-3xl text-[2.375rem] leading-[1.15] sm:text-5xl lg:text-[3.5rem]">
             Waterproofing and structural repair contractors
           </h1>

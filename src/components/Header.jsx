@@ -16,36 +16,23 @@ export default function Header() {
 
   return (
     <>
-      {/*
-        Fixed over the hero photo with a light navy tint; turns solid navy once the page scrolls.
-        The utility bar (contact details as plain text) folds away on scroll.
-      */}
-      <header
-        className={`fixed inset-x-0 top-0 z-50 text-white transition-[background-color,box-shadow] duration-300 ${
-          scrolled ? 'bg-navy shadow-[0_2px_16px_rgb(8_22_41/0.35)]' : 'bg-ink/35'
-        }`}
-      >
-      <div
-        className={`hidden overflow-hidden border-b border-white/10 text-[0.875rem] text-white/80 transition-[height] duration-300 lg:block ${
-          scrolled ? 'h-0 border-transparent' : 'h-10'
-        }`}
-        aria-hidden={scrolled ? 'true' : undefined}
-      >
+      {/* Utility bar: contact details as plain text, as on most established contractor sites. */}
+      <div className="hidden bg-navy text-[0.875rem] text-white/85 lg:block">
         <div className="container-x flex h-10 items-center justify-between gap-6">
           <p>{site.hours.display}</p>
           <ul className="flex items-center gap-6">
             <li>
-              <a href={site.phones[0].tel} className="hover:text-white" tabIndex={scrolled ? -1 : undefined}>
+              <a href={site.phones[0].tel} className="hover:text-white">
                 {site.phones[0].display}
               </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`} className="hover:text-white" tabIndex={scrolled ? -1 : undefined}>
+              <a href={`mailto:${site.email}`} className="hover:text-white">
                 {site.email}
               </a>
             </li>
             <li>
-              <a href={site.whatsapp.link} target="_blank" rel="noopener noreferrer" className="hover:text-white" tabIndex={scrolled ? -1 : undefined}>
+              <a href={site.whatsapp.link} target="_blank" rel="noopener noreferrer" className="hover:text-white">
                 WhatsApp
               </a>
             </li>
@@ -53,9 +40,15 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Solid white bar with the full-colour logo; stays at the top while scrolling. */}
+      <header
+        className={`sticky top-0 z-50 border-b border-line bg-white transition-shadow duration-200 ${
+          scrolled ? 'shadow-[0_2px_12px_rgb(11_31_58/0.08)]' : ''
+        }`}
+      >
         <div className="container-x flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
           <a href="#top" className="shrink-0" aria-label="Pyramid Incorporation, back to top">
-            <Logo tone="dark" className="h-9 w-auto lg:h-10" />
+            <Logo tone="light" className="h-9 w-auto lg:h-10" />
           </a>
 
           <nav aria-label="Main" className="hidden lg:block">
@@ -68,7 +61,7 @@ export default function Header() {
                       href={`#${item.id}`}
                       aria-current={isActive ? 'location' : undefined}
                       className={`border-b-2 py-2 text-base font-medium transition-colors ${
-                        isActive ? 'border-white text-white' : 'border-transparent text-white/80 hover:text-white'
+                        isActive ? 'border-navy text-navy' : 'border-transparent text-text hover:text-navy'
                       }`}
                     >
                       {item.label}
@@ -81,14 +74,14 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <span className="hidden sm:block">
-              <Button href="#contact" size="sm" variant="light" className="px-5">
+              <Button href="#contact" size="sm" className="px-5">
                 Contact us
               </Button>
             </span>
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="inline-flex size-11 items-center justify-center rounded-xs text-white hover:bg-white/10 lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-xs text-navy hover:bg-mist lg:hidden"
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-menu"

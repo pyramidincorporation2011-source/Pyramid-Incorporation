@@ -50,7 +50,7 @@ Key features:
 | Motion | `motion`, used only for the menu, dialogs and photo viewer |
 | Images | WebP in several sizes, generated with `sharp` |
 | Rendering | Prerendered to static HTML at build time, then hydrated |
-| Hosting | Netlify or Vercel (configuration for both is included) |
+| Hosting | Cloudflare Pages (Netlify and Vercel configuration also included) |
 
 ## Getting started
 
@@ -167,28 +167,40 @@ text, title and description, so when targeting a new phrase, also use it natural
 
 ## Deployment
 
-The site is static and deploys to Netlify or Vercel. `netlify.toml` and `vercel.json` set the build command,
-output folder, caching and security headers.
+The site is hosted on **Cloudflare Pages** (free plan; commercial use allowed). The domain is registered with GoDaddy
+and its DNS is managed by Cloudflare.
 
-1. Push this repository to a **private** GitHub repository.
-2. On Netlify: **Add new site → Import from GitHub**, then select the repository. Build settings are read from
-   `netlify.toml`.
-3. Optionally add `VITE_WEB3FORMS_KEY` under **Site configuration → Environment variables**, then redeploy.
-4. Under **Domain management**, add `www.pyramidincorporation.com` and set it as the primary domain.
-5. Point the domain to Netlify. The domain is registered with GoDaddy, but its DNS is currently served by the
-   previous hosting provider (`webhostbox.net`). In GoDaddy, go to **Domain → DNS → Nameservers** and replace them
-   with the nameservers Netlify provides.
-   Before switching, re-create any email (MX) records that are still in use.
-6. HTTPS is issued automatically once the domain resolves. Then cancel the previous hosting plan.
+| Setting | Value |
+| --- | --- |
+| Framework preset | None (or Vite) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node.js version | 22 (read from `.nvmrc`) |
+| Headers | `public/_headers` (security and caching) |
 
-Every push to the main branch redeploys the site automatically.
+Every push to the `main` branch on GitHub redeploys the site automatically.
+
+**First-time set-up**
+
+1. In Cloudflare: **Workers & Pages → Create → Pages → Connect to Git**, select the GitHub repository and enter the
+   settings above.
+2. Optionally add `VITE_WEB3FORMS_KEY` under **Settings → Variables and secrets**, then redeploy.
+3. Add the domain to Cloudflare (**Add a domain**, Free plan). Check the imported DNS records, keep the email
+   records (`MX` and `mail`), then change the nameservers in GoDaddy (**Domain → DNS → Nameservers**) to the two
+   Cloudflare provides.
+4. Once the domain is active, add `www.pyramidincorporation.com` and `pyramidincorporation.com` under the Pages
+   project's **Custom domains**, and redirect the bare domain to `www` with a Redirect Rule.
+5. In the domain's settings, turn off **Email Address Obfuscation** and **Rocket Loader** (not needed, and they
+   alter the page).
+
+`netlify.toml` and `vercel.json` are kept so the site can also be deployed to Netlify or Vercel if ever needed.
 
 ## Security
 
 The site is static: there is no server, database, admin panel or login, so there is nothing on the server side to
 break into. The protections in place:
 
-- **Security headers** on every response (`netlify.toml`, `vercel.json`): a strict Content-Security-Policy that
+- **Security headers** on every response (`public/_headers`; mirrored in `netlify.toml` and `vercel.json`): a strict Content-Security-Policy that
   only allows the site's own scripts, Web3Forms for the form and Google Maps for the map; HSTS (HTTPS only);
   clickjacking protection; no MIME sniffing; a restrictive Permissions-Policy and Referrer-Policy.
 - **No secrets in the code.** The only key is the optional Web3Forms access key, which is designed to be public.
@@ -199,7 +211,7 @@ break into. The protections in place:
 - **Dependencies:** `npm audit` reports no known vulnerabilities. Run `npm audit` before each release.
 - **Security contact:** `/.well-known/security.txt` (renew the `Expires` date yearly).
 
-Account security matters as much as the code: turn on two-factor authentication for GitHub, Netlify/Vercel,
+Account security matters as much as the code: turn on two-factor authentication for GitHub, Cloudflare,
 GoDaddy and the email account.
 
 ## Credits
