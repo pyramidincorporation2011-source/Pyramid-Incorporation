@@ -7,16 +7,9 @@
 
 export const photoCredits = [
   { use: 'Hero and social preview image', file: 'stock/hero', photographer: 'yajna S R', url: 'https://www.pexels.com/photo/construction-workers-working-on-top-of-a-building-20591230/' },
-  { use: 'Toilet / Bathroom Waterproofing', file: 'stock/bathroom', photographer: 'Infinity Lifespaces', url: 'https://www.pexels.com/photo/construction-worker-plastering-ceiling-in-delhi-30580530/' },
-  { use: 'Sump / Underground Water Tank Waterproofing', file: 'stock/sump-tank', photographer: 'Sachin Mamtora', url: 'https://www.pexels.com/photo/miner-working-in-black-and-white-15099463/' },
-  { use: 'Terrace Insulation & Treatment', file: 'stock/terrace', photographer: 'Manoo Media', url: 'https://www.pexels.com/photo/man-working-on-cement-19913288/' },
-  { use: 'Expansion Joint Treatment', file: 'stock/expansion-joint', photographer: 'Nishant Aneja', url: 'https://www.pexels.com/photo/construction-workers-on-the-site-12709142/' },
   { use: 'Crack Treatment', file: 'stock/crack', photographer: 'Infinity Lifespaces', url: 'https://www.pexels.com/photo/construction-worker-renovating-interior-in-delhi-30580529/' },
-  { use: 'Cement Slurry Grouting', file: 'stock/slurry-grouting', photographer: 'Vikesh zen', url: 'https://www.pexels.com/photo/construction-worker-mixing-cement-on-site-40305766/' },
-  { use: 'PU Grouting', file: 'stock/pu-grouting', photographer: 'Infinity Lifespaces', url: 'https://www.pexels.com/photo/construction-worker-inspecting-structure-in-delhi-30580528/' },
   { use: 'Core Cutting', file: 'stock/core-cutting', photographer: 'Infinity Lifespaces', url: 'https://www.pexels.com/photo/construction-workers-at-a-building-site-in-delhi-30592257/' },
   { use: 'Rebaring', file: 'stock/rebaring', photographer: 'Rohan Batra', url: 'https://www.pexels.com/photo/construction-workers-building-reinforced-structure-40716383/' },
-  { use: 'Basement Treatment', file: 'stock/basement', photographer: 'Infinity Lifespaces', url: 'https://www.pexels.com/photo/construction-workers-on-high-rise-building-in-delhi-30592256/' },
   { use: 'Gallery (representative image)', file: 'stock/rep-exterior', photographer: 'The Vanity Photography Co.', url: 'https://www.pexels.com/photo/a-worker-painting-the-wall-of-a-building-13718311/' },
   { use: 'Gallery (representative image)', file: 'stock/rep-building', photographer: 'Its Kiran', url: 'https://www.pexels.com/photo/under-construction-brown-brick-building-5323962/' },
 ];
@@ -25,6 +18,7 @@ export const photoCredits = [
 export const otherSources = [
   'Logo: supplied by Pyramid Incorporation (logo.pdf). Owned by Pyramid Incorporation.',
   'Project photos (Projects section, About): Pyramid Incorporation site photos. Owned by Pyramid Incorporation.',
+  'Service photos (Services section: Toilet / Bathroom Waterproofing, Sump / Underground Water Tank Waterproofing, Terrace Insulation & Treatment, Expansion Joint Treatment, Cement Slurry Grouting, PU Grouting, Basement Treatment): supplied by Pyramid Incorporation, which holds or has obtained the rights to use them. All rights reserved by their respective owners.',
   'Client reviews: quoted word for word from public Google reviews of Pyramid Incorporation; the words remain those of their authors.',
   'Press link: "Pyramid Incorporation: Elevating the Standards of Waterproofing Across India", SiliconIndia Homes, https://www.siliconindiahomes.com/home-tech/vendor/pyramid-incorporation-elevating-the-standards-of-waterproofing-across-india-cid-627.html (linked, not reproduced).',
   'Map: embedded from Google Maps, subject to the Google Maps/Google Earth Additional Terms of Service.',

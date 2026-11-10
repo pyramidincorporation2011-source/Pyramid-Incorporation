@@ -15,16 +15,9 @@ They illustrate the type of work only, and are labelled "Representative image" i
 | Used for | Photographer | Source |
 | --- | --- | --- |
 | Hero and social preview image | yajna S R | [Pexels](https://www.pexels.com/photo/construction-workers-working-on-top-of-a-building-20591230/) |
-| Toilet / Bathroom Waterproofing | Infinity Lifespaces | [Pexels](https://www.pexels.com/photo/construction-worker-plastering-ceiling-in-delhi-30580530/) |
-| Sump / Underground Water Tank Waterproofing | Sachin Mamtora | [Pexels](https://www.pexels.com/photo/miner-working-in-black-and-white-15099463/) |
-| Terrace Insulation & Treatment | Manoo Media | [Pexels](https://www.pexels.com/photo/man-working-on-cement-19913288/) |
-| Expansion Joint Treatment | Nishant Aneja | [Pexels](https://www.pexels.com/photo/construction-workers-on-the-site-12709142/) |
 | Crack Treatment | Infinity Lifespaces | [Pexels](https://www.pexels.com/photo/construction-worker-renovating-interior-in-delhi-30580529/) |
-| Cement Slurry Grouting | Vikesh zen | [Pexels](https://www.pexels.com/photo/construction-worker-mixing-cement-on-site-40305766/) |
-| PU Grouting | Infinity Lifespaces | [Pexels](https://www.pexels.com/photo/construction-worker-inspecting-structure-in-delhi-30580528/) |
 | Core Cutting | Infinity Lifespaces | [Pexels](https://www.pexels.com/photo/construction-workers-at-a-building-site-in-delhi-30592257/) |
 | Rebaring | Rohan Batra | [Pexels](https://www.pexels.com/photo/construction-workers-building-reinforced-structure-40716383/) |
-| Basement Treatment | Infinity Lifespaces | [Pexels](https://www.pexels.com/photo/construction-workers-on-high-rise-building-in-delhi-30592256/) |
 | Gallery (representative image) | The Vanity Photography Co. | [Pexels](https://www.pexels.com/photo/a-worker-painting-the-wall-of-a-building-13718311/) |
 | Gallery (representative image) | Its Kiran | [Pexels](https://www.pexels.com/photo/under-construction-brown-brick-building-5323962/) |
 
@@ -32,6 +25,7 @@ They illustrate the type of work only, and are labelled "Representative image" i
 
 - Logo: supplied by Pyramid Incorporation (logo.pdf). Owned by Pyramid Incorporation.
 - Project photos (Projects section, About): Pyramid Incorporation site photos. Owned by Pyramid Incorporation.
+- Service photos (Services section: Toilet / Bathroom Waterproofing, Sump / Underground Water Tank Waterproofing, Terrace Insulation & Treatment, Expansion Joint Treatment, Cement Slurry Grouting, PU Grouting, Basement Treatment): supplied by Pyramid Incorporation, which holds or has obtained the rights to use them. All rights reserved by their respective owners.
 - Client reviews: quoted word for word from public Google reviews of Pyramid Incorporation; the words remain those of their authors.
 - Press link: "Pyramid Incorporation: Elevating the Standards of Waterproofing Across India", SiliconIndia Homes, https://www.siliconindiahomes.com/home-tech/vendor/pyramid-incorporation-elevating-the-standards-of-waterproofing-across-india-cid-627.html (linked, not reproduced).
 - Map: embedded from Google Maps, subject to the Google Maps/Google Earth Additional Terms of Service.

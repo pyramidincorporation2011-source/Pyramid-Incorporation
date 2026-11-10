@@ -42,21 +42,19 @@
     ]
   },
   "stock/basement": {
-    "width": 2400,
-    "height": 1600,
+    "width": 678,
+    "height": 452,
     "widths": [
       640,
-      1024,
-      1600
+      678
     ]
   },
   "stock/bathroom": {
-    "width": 2400,
-    "height": 1600,
+    "width": 911,
+    "height": 911,
     "widths": [
       640,
-      1024,
-      1600
+      911
     ]
   },
   "stock/core-cutting": {
@@ -78,12 +76,10 @@
     ]
   },
   "stock/expansion-joint": {
-    "width": 2400,
-    "height": 3057,
+    "width": 492,
+    "height": 651,
     "widths": [
-      640,
-      1024,
-      1600
+      492
     ]
   },
   "stock/hero": {
@@ -96,12 +92,12 @@
     ]
   },
   "stock/pu-grouting": {
-    "width": 2400,
-    "height": 1600,
+    "width": 1479,
+    "height": 1063,
     "widths": [
       640,
       1024,
-      1600
+      1479
     ]
   },
   "stock/rebaring": {
@@ -132,8 +128,8 @@
     ]
   },
   "stock/slurry-grouting": {
-    "width": 2400,
-    "height": 1800,
+    "width": 1663,
+    "height": 945,
     "widths": [
       640,
       1024,
@@ -141,8 +137,8 @@
     ]
   },
   "stock/sump-tank": {
-    "width": 2400,
-    "height": 1800,
+    "width": 1607,
+    "height": 979,
     "widths": [
       640,
       1024,
@@ -150,12 +146,11 @@
     ]
   },
   "stock/terrace": {
-    "width": 2400,
-    "height": 3200,
+    "width": 960,
+    "height": 1280,
     "widths": [
       640,
-      1024,
-      1600
+      960
     ]
   },
   "stock/hero-portrait": {
