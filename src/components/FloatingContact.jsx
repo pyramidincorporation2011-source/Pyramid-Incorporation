@@ -1,38 +1,60 @@
+import { Mail, Phone } from 'lucide-react';
 import { site } from '../data/site';
-import { useScrolled } from '../hooks';
 import { WhatsAppIcon } from './ui/Icons';
 
-/** WhatsApp button (tablet and desktop) and a sticky Call / WhatsApp bar on phones. */
-export default function FloatingContact() {
-  const visible = useScrolled(400);
-  return (
-    <>
-      <a
-        href={site.whatsapp.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with Pyramid Incorporation on WhatsApp"
-        className={`fixed bottom-6 right-6 z-40 hidden size-14 items-center justify-center rounded-full bg-[#17733D] text-white shadow-lg transition-opacity duration-200 hover:bg-[#125c31] sm:inline-flex ${
-          visible ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        tabIndex={visible ? 0 : -1}
-      >
-        <WhatsAppIcon className="size-7" />
-      </a>
+/**
+ * Always-visible contact buttons (bottom-right) from the first page load.
+ * Labels show from tablet width up; on phones the round buttons stand alone (each has an accessible name).
+ */
+const actions = [
+  {
+    label: 'WhatsApp',
+    aria: 'Chat with Pyramid Incorporation on WhatsApp',
+    href: site.whatsapp.link,
+    external: true,
+    color: 'bg-[#25D366] hover:bg-[#1ebe5b]',
+    icon: <WhatsAppIcon className="size-6 sm:size-7" />,
+  },
+  {
+    label: 'Call Now',
+    aria: `Call Pyramid Incorporation on ${site.phones[0].display}`,
+    href: site.phones[0].tel,
+    color: 'bg-[#2563EB] hover:bg-[#1d4fd8]',
+    icon: <Phone className="size-5 sm:size-6" aria-hidden="true" strokeWidth={2} />,
+  },
+  {
+    label: 'Email Us',
+    aria: `Email Pyramid Incorporation at ${site.email}`,
+    href: `mailto:${site.email}`,
+    color: 'bg-[#6366F1] hover:bg-[#5457e6]',
+    icon: <Mail className="size-5 sm:size-6" aria-hidden="true" strokeWidth={2} />,
+  },
+];
 
-      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-line bg-white pb-[env(safe-area-inset-bottom)] sm:hidden">
-        <a href={site.phones[0].tel} className="flex h-14 items-center justify-center text-base font-semibold text-navy">
-          Call us
-        </a>
-        <a
-          href={site.whatsapp.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex h-14 items-center justify-center bg-[#17733D] text-base font-semibold text-white"
-        >
-          WhatsApp
-        </a>
-      </div>
-    </>
+export default function FloatingContact() {
+  return (
+    <nav aria-label="Quick contact" className="fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+      <ul className="flex flex-col items-end gap-3">
+        {actions.map((a) => (
+          <li key={a.label}>
+            <a
+              href={a.href}
+              aria-label={a.aria}
+              {...(a.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className="group flex items-center gap-3"
+            >
+              <span className="hidden rounded-md bg-white px-4 py-2 text-[0.9375rem] font-semibold text-navy shadow-[0_4px_14px_rgb(8_22_41/0.18)] ring-1 ring-black/5 transition-transform group-hover:-translate-x-0.5 sm:block">
+                {a.label}
+              </span>
+              <span
+                className={`inline-flex size-12 shrink-0 items-center justify-center rounded-full text-white shadow-[0_6px_18px_rgb(8_22_41/0.28)] transition-colors sm:size-14 ${a.color}`}
+              >
+                {a.icon}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

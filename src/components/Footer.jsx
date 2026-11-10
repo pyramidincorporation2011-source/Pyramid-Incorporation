@@ -8,7 +8,7 @@ const link = 'text-white/80 hover:text-white hover:underline underline-offset-4'
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-ink pb-24 pt-16 text-white sm:pb-10">
+    <footer className="bg-ink pb-28 pt-16 text-white sm:pb-10">
       <Container>
         <div className="grid gap-10 border-b border-line-dark pb-12 sm:grid-cols-2 lg:grid-cols-12">
           <div className="sm:col-span-2 lg:col-span-4">

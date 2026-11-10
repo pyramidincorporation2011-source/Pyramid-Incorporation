@@ -71,9 +71,8 @@ labelled "Representative image" where they appear in the project gallery.
 
 - Logo: supplied by Pyramid Incorporation (logo.pdf). Owned by Pyramid Incorporation.
 - Project photos (Projects section, About): Pyramid Incorporation site photos. Owned by Pyramid Incorporation.
-- Proprietor photo: supplied by Pyramid Incorporation. Owned by Pyramid Incorporation.
 - Client reviews: quoted word for word from public Google reviews of Pyramid Incorporation; the words remain those of their authors.
-- Proprietor quote and profile: based on "Pyramid Incorporation: Elevating the Standards of Waterproofing Across India", SiliconIndia Homes, https://www.siliconindiahomes.com/home-tech/vendor/pyramid-incorporation-elevating-the-standards-of-waterproofing-across-india-cid-627.html
+- Press link: "Pyramid Incorporation: Elevating the Standards of Waterproofing Across India", SiliconIndia Homes, https://www.siliconindiahomes.com/home-tech/vendor/pyramid-incorporation-elevating-the-standards-of-waterproofing-across-india-cid-627.html (linked, not reproduced).
 - Map: embedded from Google Maps, subject to the Google Maps/Google Earth Additional Terms of Service.
 
 ==============================================================================

@@ -5,6 +5,26 @@ import SectionHeading from './ui/SectionHeading';
 
 const google = site.listings.find((l) => l.name === 'Google Business');
 
+/** Google-style star rating (yellow stars), with the rating announced to screen readers. */
+function Stars({ rating, size = 'size-4' }) {
+  if (!rating) return null;
+  return (
+    <div className="flex items-center gap-2">
+      <span className="flex" role="img" aria-label={`Rated ${rating} out of 5 on Google`}>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <svg key={i} viewBox="0 0 20 20" aria-hidden="true" className={`${size} ${i <= rating ? 'text-[#FBBC04]' : 'text-[#d6d9de]'}`}>
+            <path
+              fill="currentColor"
+              d="M10 1.5l2.6 5.3 5.9.9-4.25 4.15 1 5.85L10 14.95 4.75 17.7l1-5.85L1.5 7.7l5.9-.9L10 1.5z"
+            />
+          </svg>
+        ))}
+      </span>
+      <span className="text-sm text-muted">Google review</span>
+    </div>
+  );
+}
+
 export default function Reviews() {
   const featured = reviews.find((r) => r.featured);
   const others = reviews.filter((r) => !r.featured);
@@ -26,7 +46,8 @@ export default function Reviews() {
 
         {featured && (
           <figure className="mt-10 rounded-xs border border-line bg-mist p-8 sm:p-10">
-            <blockquote className="max-w-4xl font-display text-xl leading-relaxed text-navy sm:text-2xl">
+            <Stars rating={featured.rating} size="size-5" />
+            <blockquote className="mt-4 max-w-4xl font-display text-xl leading-relaxed text-navy sm:text-2xl">
               <p>“{featured.text}”</p>
             </blockquote>
             <figcaption className="mt-6 text-base">
@@ -40,7 +61,8 @@ export default function Reviews() {
           {others.map((r) => (
             <li key={r.name} className="mb-6 break-inside-avoid">
               <figure className="rounded-xs border border-line bg-mist p-6">
-                <blockquote className="text-base text-text">
+                <Stars rating={r.rating} />
+                <blockquote className="mt-3 text-base text-text">
                   <p>
                     “{r.text}
                     {r.truncated ? ' …' : ''}”

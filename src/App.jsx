@@ -2,7 +2,7 @@ import { LazyMotion, MotionConfig, domAnimation } from 'motion/react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Leadership from './components/Leadership';
+import Featured from './components/Featured';
 import Services from './components/Services';
 import Process from './components/Process';
 import WhyUs from './components/WhyUs';
@@ -26,7 +26,7 @@ export default function App() {
         <main id="main" tabIndex={-1} className="outline-none">
           <Hero />
           <About />
-          <Leadership />
+          <Featured />
           <Services />
           <Process />
           <WhyUs />

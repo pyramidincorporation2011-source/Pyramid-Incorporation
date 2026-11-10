@@ -39,20 +39,6 @@ export default function About() {
               </div>
             </dl>
 
-            {site.press.map((p) => (
-              <p key={p.href} className="mt-8 text-[0.9375rem] text-muted">
-                Featured in {p.publication}:{' '}
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-navy underline decoration-navy/30 underline-offset-4 hover:decoration-navy"
-                >
-                  {p.title}
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </p>
-            ))}
           </div>
 
           <figure className="lg:col-span-5">

@@ -28,16 +28,16 @@ Maharashtra, since 2010.
 
 ## Overview
 
-A fast, single-page company website with these sections: Home, About, A note from our proprietor, Services,
+A fast, single-page company website with these sections: Home, About, Featured in (press), Services,
 How we work, What you can expect, Projects, Client reviews and Contact.
 
 Key features:
 
 - Ten service descriptions, each with a detail view and a pre-filled WhatsApp enquiry
 - Project gallery with a full-screen photo viewer
-- Verbatim Google reviews linked to the Google Business profile
+- Verbatim Google reviews with their star ratings, linked to the Google Business profile
 - Enquiry form that sends by email (Web3Forms) or WhatsApp
-- Click-to-call, WhatsApp and map links throughout, with a call/WhatsApp bar on phones
+- Always-visible WhatsApp, Call and Email buttons (bottom-right), plus click-to-call and map links throughout
 - Full search engine set-up: titles, descriptions, structured business data, sitemap and social previews
 
 ## Technology
@@ -94,11 +94,10 @@ All text and business details live in `src/data/`. Edit a file there and redeplo
 
 | File | Contents |
 | --- | --- |
-| `site.js` | Company details: phones, WhatsApp, email, address, map, hours, GSTIN, listings, press, mission, vision, project count, search keywords |
+| `site.js` | Company details: phones, WhatsApp, email, address, map, hours, GSTIN, listings, press ("Featured in" band), mission, vision, project count, search keywords |
 | `services.js` | The ten services: summary, "What we do", "Typical signs", photo and filter category |
-| `leadership.js` | "A note from our proprietor": photo, profile and quote |
 | `gallery.js` | Project photos and captions |
-| `reviews.js` | Google review quotes (keep them word for word) |
+| `reviews.js` | Google review quotes (keep them word for word) and each reviewer's star rating |
 | `process.js` | The five steps of "How we work" |
 | `values.js` | Core values and "What you can expect" points |
 | `credits.js` | Photo credits, quoted sources and trademark notice (feeds the credits file) |
@@ -237,7 +236,7 @@ focus-trapped menu and dialogs, WCAG AA contrast and reduced-motion support.
 - [ ] Opening hours (currently Monday–Saturday, 9:00 AM – 7:00 PM)
 - [ ] States served: the site says "multiple states"; name them if preferred
 - [ ] WhatsApp number used for pre-filled messages (+91 98909 53541)
-- [ ] Proprietor section wording and quote
+- [ ] Star rating of each review in `reviews.js` matches Google (all currently set to 5)
 - [ ] Reviewers are happy to be shown by name
 - [ ] Map pin position (replace `mapEmbed` in `site.js` with Google Maps' own embed link if needed)
 - [ ] Domain email: confirm whether any `@pyramidincorporation.com` mailboxes are in use before changing DNS
