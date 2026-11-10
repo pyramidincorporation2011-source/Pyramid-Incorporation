@@ -1,5 +1,6 @@
 import { Mail, Phone } from 'lucide-react';
 import { site } from '../data/site';
+import { useScrolled } from '../hooks';
 import { WhatsAppIcon } from './ui/Icons';
 
 /**
@@ -31,9 +32,21 @@ const actions = [
   },
 ];
 
+/*
+  Desktop/laptop behaviour: labels are shown on load; once the page is scrolled they fold away and only the
+  icons remain. Hovering near the buttons (the nav has extra padding as a hover zone) or tabbing to them brings
+  the labels back. Phones always show icons only.
+*/
+const labelCollapsed =
+  'sm:pointer-events-none sm:translate-x-3 sm:opacity-0 ' +
+  'sm:group-hover/fab:pointer-events-auto sm:group-hover/fab:translate-x-0 sm:group-hover/fab:opacity-100 ' +
+  'sm:group-focus-within/fab:pointer-events-auto sm:group-focus-within/fab:translate-x-0 sm:group-focus-within/fab:opacity-100';
+
 export default function FloatingContact() {
+  const collapsed = useScrolled(80);
+
   return (
-    <nav aria-label="Quick contact" className="fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6">
+    <nav aria-label="Quick contact" className="group/fab fixed bottom-2 right-2 z-40 p-2 sm:bottom-2 sm:right-2 sm:p-4">
       <ul className="flex flex-col items-end gap-3">
         {actions.map((a) => (
           <li key={a.label}>
@@ -41,9 +54,13 @@ export default function FloatingContact() {
               href={a.href}
               aria-label={a.aria}
               {...(a.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="group flex items-center gap-3"
+              className="flex items-center gap-3"
             >
-              <span className="hidden rounded-md bg-white px-4 py-2 text-[0.9375rem] font-semibold text-navy shadow-[0_4px_14px_rgb(8_22_41/0.18)] ring-1 ring-black/5 transition-transform group-hover:-translate-x-0.5 sm:block">
+              <span
+                className={`hidden rounded-md bg-white px-4 py-2 text-[0.9375rem] font-semibold text-navy shadow-[0_4px_14px_rgb(8_22_41/0.18)] ring-1 ring-black/5 transition-[opacity,transform] duration-200 ease-out sm:block ${
+                  collapsed ? labelCollapsed : ''
+                }`}
+              >
                 {a.label}
               </span>
               <span
