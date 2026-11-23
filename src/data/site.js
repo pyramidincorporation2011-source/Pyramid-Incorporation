@@ -55,6 +55,12 @@ export const site = {
     country: 'IN',
   },
   mapsLink: 'https://maps.app.goo.gl/TZuU1sx18kfyxD3V8',
+  /** Company brochure, served from public/. Size is shown next to the download button. */
+  brochure: {
+    href: '/Pyramid-Incorporation-Brochure.pdf',
+    fileName: 'Pyramid-Incorporation-Brochure.pdf',
+    size: 'PDF, 7.3 MB',
+  },
   mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_ONE_LINE)}&output=embed`,
 
   hours: {

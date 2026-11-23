@@ -19,7 +19,15 @@ const fill = (n) => {
 export default function Services() {
   const [filter, setFilter] = useState('all');
   const [openId, setOpenId] = useState(null);
-  const shown = useMemo(() => (filter === 'all' ? services : services.filter((s) => s.category === filter)), [filter]);
+  const shown = useMemo(() => {
+    if (filter === 'all') return services;
+    const list = services.filter((s) => s.category === filter);
+    const order = serviceCategories.find((c) => c.id === filter)?.order;
+    if (!order) return list;
+    // Listed ids first, in the given order; any service not listed keeps its place at the end.
+    const rank = (s) => (order.includes(s.id) ? order.indexOf(s.id) : order.length);
+    return [...list].sort((a, b) => rank(a) - rank(b));
+  }, [filter]);
   const current = services.find((s) => s.id === openId);
 
   return (
@@ -91,7 +99,8 @@ export default function Services() {
                 Leaks often show up far from where they start. We'll inspect the site and tell you what's actually needed. The inspection is free.
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            {/* Wraps so the buttons stack when this panel is only one grid column wide. */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button href="#contact" variant="light">
                 Book a site inspection
               </Button>

@@ -33,9 +33,25 @@ export default function About() {
                 <dt className="text-sm text-muted">Experience</dt>
                 <dd className="mt-1 font-medium text-navy">{experienceLabel()}</dd>
               </div>
-              <div>
+              <div className="col-span-2 sm:col-span-1">
                 <dt className="text-sm text-muted">Office</dt>
-                <dd className="mt-1 font-medium text-navy">Ravi Nagar, Nagpur</dd>
+                <dd className="mt-1 font-medium text-navy">
+                  <address className="not-italic">
+                    {site.address.lines.map((l) => (
+                      <span key={l} className="block">
+                        {l}
+                      </span>
+                    ))}
+                  </address>
+                  <a
+                    href={site.mapsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-block text-[0.9375rem] font-semibold underline decoration-navy/30 underline-offset-4 hover:decoration-navy"
+                  >
+                    View on Google Maps<span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </dd>
               </div>
             </dl>
 

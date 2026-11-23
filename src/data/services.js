@@ -6,9 +6,18 @@
  * run `npm run images`, then change the `image` key below. See README.md.
  */
 
+/**
+ * Filter tabs. `order` (optional) lists service ids in the order that tab shows them;
+ * without it, a tab keeps the order of the `services` array below.
+ * Waterproofing has its own order so it doesn't open with the same first row as "All".
+ */
 export const serviceCategories = [
   { id: 'all', label: 'All' },
-  { id: 'waterproofing', label: 'Waterproofing' },
+  {
+    id: 'waterproofing',
+    label: 'Waterproofing',
+    order: ['terrace-treatment', 'basement-treatment', 'sump-tank-waterproofing', 'expansion-joint-treatment', 'bathroom-waterproofing'],
+  },
   { id: 'grouting', label: 'Grouting & Injection' },
   { id: 'repair', label: 'Repair & Cutting' },
 ];

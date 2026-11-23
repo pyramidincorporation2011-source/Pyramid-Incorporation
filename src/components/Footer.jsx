@@ -75,6 +75,11 @@ export default function Footer() {
                 <address className="not-italic">{site.address.oneLine}</address>
               </li>
               <li>{site.hours.short}</li>
+              <li>
+                <a href={site.brochure.href} download={site.brochure.fileName} className={link}>
+                  Download our brochure ({site.brochure.size})
+                </a>
+              </li>
             </ul>
 
             <h2 className="mt-8 font-display text-base font-medium text-white">Find us on</h2>
